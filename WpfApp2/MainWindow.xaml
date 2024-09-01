@@ -25,44 +25,64 @@
     </Grid>
 </Window>-->
 <Window x:Class="WpfApp2.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfApp2"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid x:Name="Calc">
+ xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+     xmlns:local="namespace:WpfStudyApplication"
+     mc:Ignorable="d"
+     Title="MainWindow" Height="600" Width="800" WindowStartupLocation="CenterScreen">
+    <Grid x:Name="mainGrid">
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
+            <RowDefinition Height="100"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="100"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="100"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="100"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <Button Content="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="67" Width="180" FontSize="36" Grid.Row="1" Click="Number1"/>
-        <Button Content="2" HorizontalAlignment="Center" VerticalAlignment="Center" Height="67" Width="180" Grid.Column="1" FontSize="36" Grid.Row="1" Click="Number2"/>
-        <Button Content="3" HorizontalAlignment="Center" VerticalAlignment="Center" Height="67" Width="180" Grid.Column="2" FontSize="36" Grid.Row="1" Click="Number3"/>
-        <Button Content="4" HorizontalAlignment="Center" VerticalAlignment="Center" Height="67" Width="180" FontSize="36" Grid.Row="2" Click="Number4"/>
-        <Button Content="5" HorizontalAlignment="Center" VerticalAlignment="Center" Height="67" Width="180" Grid.Column="1" FontSize="36" Grid.Row="2" Click="Number5"/>
-        <Button Content="6" HorizontalAlignment="Center" VerticalAlignment="Center" Height="67" Width="180" Grid.Column="2" FontSize="36" Grid.Row="2" Click="Number6"/>
-        <Button Content="7" HorizontalAlignment="Center" VerticalAlignment="Center" Height="67" Width="180" FontSize="36" Grid.Row="3" Click="Number7"/>
-        <Button Content="8" HorizontalAlignment="Center" VerticalAlignment="Center" Height="67" Width="180" Grid.Column="1" FontSize="36" Grid.Row="3" Click="Number8"/>
-        <Button Content="9" HorizontalAlignment="Center" VerticalAlignment="Center" Height="67" Width="180" Grid.Column="2" FontSize="36" Grid.Row="3" Click="Number9"/>
-        <Button Content="0" HorizontalAlignment="Center" VerticalAlignment="Center" Height="67" Width="180" Grid.Column="1" FontSize="36" Grid.Row="4" Click="Number0"/>
-        <Button Content="=" HorizontalAlignment="Center" VerticalAlignment="Center" Height="67" Width="180" FontSize="36" Grid.Row="4" Grid.Column="2" Click="Rezultat"/>
-        <Button Content="*" HorizontalAlignment="Center" VerticalAlignment="Center" Height="67" Width="180" FontSize="36" Grid.Row="4" Grid.Column="3" Click="Mnozenije"/>
-        <Button Content="/" HorizontalAlignment="Center" VerticalAlignment="Center" Height="67" Width="180" FontSize="36" Grid.Row="3" Grid.Column="3" Click="Delit"/>
-        <Button Content="+" HorizontalAlignment="Center" VerticalAlignment="Center" Height="67" Width="180" FontSize="36" Grid.Row="1" Grid.Column="3" Click="Plus"/>
-        <Button Content="-" HorizontalAlignment="Center" VerticalAlignment="Center" Height="67" Width="180" FontSize="36" Grid.Row="2" Grid.Column="3" Click="Minus"/>
-        <TextBlock TextWrapping="Wrap" Text="" Margin="10,10,10,10" FontSize="30" Grid.ColumnSpan="4" x:Name="Rez"/>
-        <Button Content="AC" HorizontalAlignment="Center" VerticalAlignment="Center" Height="67" Width="180" FontSize="36" Grid.Row="4" Grid.Column="0" Click="AC"/>
+
+        <StackPanel Grid.Column="1" Grid.Row="1">
+            <TextBlock FontSize="24" 
+             TextAlignment="Center" 
+             FontWeight="Bold"
+             Margin="2" >Library</TextBlock>
+            <TextBlock FontSize="24">Name</TextBlock>
+            <TextBox x:Name="nameBox" FontSize="24" ></TextBox>
+            <TextBlock FontSize="24">Email</TextBlock>
+            <TextBox x:Name="emailBox" FontSize="24" TextChanged="emailBox_TextChanged"></TextBox>
+            <TextBlock FontSize="24">Password</TextBlock>
+            <TextBox x:Name="passwordBox" FontSize="24"></TextBox>
+            <Button x:Name="startButton" 
+             HorizontalAlignment="Center" 
+             VerticalAlignment="Center"
+             Margin="5"
+             FontSize="24" Click="CreateUser">
+                CREATE USER
+            </Button>
+            <TextBlock FontSize="24">Id</TextBlock>
+            <TextBox x:Name="idBox" FontSize="24" ></TextBox>
+            <Button x:Name="findButton" 
+ HorizontalAlignment="Center" 
+ VerticalAlignment="Center"
+ Margin="5"
+ FontSize="24" Click="FindUser">
+                FIND USER
+            </Button>
+
+            <TextBlock FontSize="24">Id Delete</TextBlock>
+            <TextBox x:Name="idDelBox" FontSize="24" ></TextBox>
+            <Button x:Name="deleteButton" 
+HorizontalAlignment="Center" 
+VerticalAlignment="Center"
+Margin="5"
+FontSize="24" Click="DeleteUser">
+                DELETE USER
+            </Button>
+
+        </StackPanel>
 
     </Grid>
 </Window>

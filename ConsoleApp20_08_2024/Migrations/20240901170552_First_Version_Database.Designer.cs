@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WpfApp2.ConsoleApp20_08_2024;
 
 namespace WpfApp2.ConsoleApp20_08_2024.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    partial class MyDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240901170552_First_Version_Database")]
+    partial class First_Version_Database
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -65,7 +67,7 @@ namespace WpfApp2.ConsoleApp20_08_2024.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Books");
+                    b.ToTable("Book");
                 });
 
             modelBuilder.Entity("WpfApp2.ConsoleApp20_08_2024.Enities.Librarian", b =>
@@ -79,24 +81,19 @@ namespace WpfApp2.ConsoleApp20_08_2024.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
-                        .HasColumnType("nvarchar(128)")
-                        .HasMaxLength(128);
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FirstName")
-                        .HasColumnType("nvarchar(128)")
-                        .HasMaxLength(128);
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LastName")
-                        .HasColumnType("nvarchar(128)")
-                        .HasMaxLength(128);
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Password")
-                        .HasColumnType("nvarchar(128)")
-                        .HasMaxLength(128);
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Patronymic")
-                        .HasColumnType("nvarchar(128)")
-                        .HasMaxLength(128);
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("StartWorkDate")
                         .HasColumnType("datetime2");
@@ -104,19 +101,6 @@ namespace WpfApp2.ConsoleApp20_08_2024.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Librarian");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            BirthDay = new DateTime(1999, 6, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "filatov@gmail.com",
-                            FirstName = "Владислав",
-                            LastName = "Филатов",
-                            Password = "123456",
-                            Patronymic = "Алексеевич",
-                            StartWorkDate = new DateTime(2023, 6, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        });
                 });
 
             modelBuilder.Entity("WpfApp2.ConsoleApp20_08_2024.Enities.User", b =>
